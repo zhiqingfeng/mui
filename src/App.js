@@ -1,31 +1,17 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import TextField  from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Todolist from './components/Todolist';
-import Home from './components/Home';
+import React from 'react';
+import './App.css';
 
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-material.css';
 
-function TabMenu() {
-  const [value, setValue] = useState('one');
+import TabApp from './components/TabApp';
 
-  const handleChange = ( event, value) => {
-    setValue(value);
-  }
-
+function App() {
   return (
     <div className='App'>
-    <Todolist />
-      <Tabs value={value} onChange={handleChange}>
-          <Tab value="one" label="Home" />
-          <Tab value="two" label="Todolist" />
-      </Tabs>
-        {value === 'one' && <Home /> }   
-        {value === 'two' && <Todolist /> }   
+      <TabApp/>
     </div>
-  );
-};
+  )
+}
 
-export default TabMenu;
+export default App;
